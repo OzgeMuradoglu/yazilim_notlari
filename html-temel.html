@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temel HTML Etiketleri - Yazılım Kütüphanem</title>
+    <style>
+        /* Sitenin geri kalanıyla uyumlu olması için arka planı yine toz pembe yapıyoruz */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #fff0f5; 
+            color: #202122;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #ffe4e1;
+            border-bottom: 1px solid #fbc4cd;
+            padding: 15px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-family: 'Georgia', serif;
+            color: #b03060;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #ffffff;
+            border: 1px solid #fbc4cd;
+            border-radius: 4px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(176, 48, 96, 0.05);
+        }
+        h2 {
+            font-family: 'Georgia', serif;
+            font-size: 1.8rem;
+            border-bottom: 1px solid #fbc4cd;
+            padding-bottom: 8px;
+            color: #b03060;
+            margin-top: 0;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #202122;
+            margin-top: 25px;
+            border-bottom: 1px dashed #fbc4cd;
+            padding-bottom: 4px;
+        }
+        /* Kod örneklerinin tatlı pembe bir kutu içinde görünmesini sağlayan stil */
+        pre {
+            background-color: #ffeef2;
+            border: 1px solid #fbc4cd;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9rem;
+        }
+        /* Geri dönüş butonunun stili */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #b03060;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yazılım Kütüphanem</h1>
+    </header>
+
+    <div class="container">
+        <!-- Bu buton sayesinde ana sayfaya geri dönebileceksin -->
+        <a href="index.html" class="back-btn">&larr; Ana Sayfaya Dön</a>
+        
+        <h2>1.1 Temel HTML Etiketleri</h2>
+        <ul>
+        <li>HTML, Hiper Metin İşaretleme Dili anlamına gelir.</li>
+        <li>HTML, web sayfaları oluşturmak için kullanılan standart işaretleme dilidir.</li>
+        <li>HTML, bir web sayfasının yapısını tanımlar.</li>
+        <li>HTML bir dizi öğeden oluşur.</li>
+        <li>HTML öğeleri, tarayıcıya içeriğin nasıl görüntüleneceğini söyler.</li>
+        <li>HTML öğeleri, "bu bir başlık", "bu bir paragraf", "bu bir bağlantı" vb. gibi içerik parçalarını etiketler.</li>
+        </ul>
+        <h3>Genel Yapı</h3>
+      
+        <!-- Liste etiketlerini kod kutusunun dışına aldık, böylece hem noktalar görünecek hem de kod kutusu taşma yapmayacak -->
+        <ul type="circle" style="padding-left: 20px; margin-bottom: 20px;">
+            <li><code>&lt;!DOCTYPE html&gt;</code> bildirim, bu belgenin bir HTML5 belgesi olduğunu tanımlar.</li>
+            <li><code>&lt;html&gt;</code> öğe, bir HTML sayfasının kök öğesidir.</li>
+            <li><code>&lt;head&gt;</code> öğe, HTML sayfasıyla ilgili meta bilgiler içerir.</li>
+            <li><code>&lt;&lt;title&gt;</code> öğe, HTML sayfası için bir başlık belirtir.</li>
+            <li><code>&lt;body&gt;</code> öğe, HTML sayfasının gövdesini tanımlar.</li>
+            <li><code>&lt;h1&gt;-&lt;h6&gt;</code> öğeleri, başlıklar için kullanılır.</li>
+            <li><code>&lt;p&gt;</code> öğe, paragraf için kullanılır.</li>
+            <li><code>&lt;a&gt;</code> öğe, link için kullanılır.</li>
+            <li><code>&lt;img&gt;</code> öğe, görsel için kullanılır.
+            Kaynak dosya ( src), alternatif metin ( alt), widthve heightöznitelikler olarak sağlanmıştır
+           <pre><code>&lt;img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142"&gt;</code></pre></li>
+        </ul>
+
+
+        <h3>Minimal HTML Şablonu</h3>
+<p>Yeni bir HTML projesine başlarken kullanabileceğiniz en temel şablon yapısı şu şekildedir:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="tr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;İlk Web Sayfam&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Merhaba Dünya!&lt;/h1&gt;
+    &lt;p&gt;Bu benim ilk web sayfam.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <img src="C:\Users\90545\OneDrive\Pictures\Screenshots\Ekran görüntüsü 2026-07-14 194555.png" alt="HTML Yapı Şeması" style="width: 80%; max-width: 100%; height: auto; border-radius: 4px; display: block; margin: 20px auto;">  
+
+        <h3>HTML sayfa yapısının görselleştirilmiş hali</h3>
+        <!-- Resim yolunu madi.png yaptık ve genişliğini %100'e sabitleyerek kaydırma çubuğunu yok ettik -->
+        <img src="C:\Users\90545\OneDrive\Pictures\Screenshots\madi.png" alt="HTML Yapı Şeması" style="width: 100%; max-width: 100%; height: auto; border-radius: 4px; display: block; margin-top: 15px;">
+        
+    </div>
+
+</body>
+</html>
