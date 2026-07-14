@@ -3,119 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Öğrenme Günlüğüm & Kütüphanem</title>
+    <title>Yazılım Kütüphanem</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #fff0f5; /* Yumuşak toz pembe arka plan */
+            color: #202122;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
+
         header {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2.5rem 1rem;
+            background-color: #ffe4e1;
+            border-bottom: 1px solid #fbc4cd;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        header h1 {
+        header .logo-area h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 1.5rem;
+            font-family: 'Georgia', serif;
+            color: #b03060;
         }
-        header p {
-            margin: 0.5rem 0 0 0;
-            font-size: 1.1rem;
-            opacity: 0.9;
+        header .search-box {
+            background: #fff;
+            border: 1px solid #fbc4cd;
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            color: #757575;
         }
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 30px auto;
+            display: flex;
+            gap: 25px;
+            padding: 0 15px;
         }
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 0.5rem;
+
+        aside {
+            width: 280px;
+            flex-shrink: 0;
+            background: #ffffff;
+            border: 1px solid #fbc4cd;
+            border-radius: 4px;
+            padding: 15px;
+            height: fit-content;
+            box-shadow: 0 2px 4px rgba(176, 48, 96, 0.05);
+            position: sticky;
+            top: 20px;
         }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        .card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border-top: 4px solid #2980b9;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        }
-        .card h3 {
+        aside h3 {
             margin-top: 0;
-            color: #2c3e50;
+            font-size: 1rem;
+            border-bottom: 1px solid #fbc4cd;
+            padding-bottom: 8px;
+            color: #b03060;
         }
-        .card p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #666;
+        aside ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
-        .card a {
-            display: inline-block;
-            margin-top: 1rem;
-            color: #2980b9;
-            text-decoration: none;
+        aside ul li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
             font-weight: bold;
         }
-        .card a:hover {
+        aside ul li a {
+            text-decoration: none;
+            color: #202122;
+        }
+        aside ul li a:hover {
+            color: #b03060;
             text-decoration: underline;
+        }
+    
+        aside ul ul {
+            padding-left: 12px;
+            margin-top: 4px;
+        }
+        aside ul ul li {
+            margin-bottom: 4px;
+            font-size: 0.8rem;
+            font-weight: normal;
+        }
+        aside ul ul li a {
+            color: #b03060;
+        }
+
+        main {
+            flex-grow: 1;
+            background: #ffffff;
+            border: 1px solid #fbc4cd;
+            border-radius: 4px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(176, 48, 96, 0.05);
+        }
+
+        h2 {
+            font-family: 'Georgia', serif;
+            font-size: 2rem;
+            margin-top: 0;
+            border-bottom: 1px solid #fbc4cd;
+            padding-bottom: 8px;
+            color: #202122;
+        }
+        h3 {
+            font-size: 1.3rem;
+            border-bottom: 1px solid #fbc4cd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            color: #b03060;
+        }
+        
+        h4 {
+            font-size: 1rem;
+            margin: 15px 0 5px 0;
+            color: #54595d;
+        }
+        h4 a {
+            color: #202122;
+        }
+        h4 a:hover {
+            color: #b03060;
+            text-decoration: underline;
+        }
+
+        p {
+            margin: 0.5em 0 1.5em 0;
+            font-size: 0.95rem;
+            color: #54595d;
+        }
+        a {
+            color: #b03060;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+                position: static;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Yazılım Kütüphanem</h1>
-        <p>Yaz tatili boyunca öğrendiğim her şeyi düzenli olarak not aldığım kişisel bilgi depom.</p>
+        <div class="logo-area">
+            <h1>Yazılım Kütüphanem</h1>
+        </div>
+        <div class="search-box">
+            Notlar veya kodlar...
+        </div>
     </header>
 
-    <div class="container">
-        <h2>Çalışma Alanlarım</h2>
-        <div class="grid">
+    <div class="wrapper">
+        
+        <aside>
+            <h3>İçindekiler</h3>
+            <ul>
+                <li>1. HTML & CSS
+                    <ul>
+                        <li>1.1 <a href="html-temel.html">Temel HTML Etiketleri</a></li>
+                        <li>1.2 <a href="html-liste.html">Liste Etiketleri</a></li>
+                        <li>1.3 <a href="html-semantik.html">Semantik HTML5</a></li>
+                        <li>1.4 <a href="html-form.html">Form Elemanları</a></li>
+                        <li>1.5 <a href="css-secici.html">CSS Seçicileri</a></li>
+                        <li>1.6 <a href="css-box.html">Kutu Modeli (Box Model)</a></li>
+                        <li>1.7 <a href="css-layout.html">Flexbox ve Grid</a></li>
+                    </ul>
+                </li>
+                <li style="margin-top: 15px;">2. C# Programlama
+                    <ul>
+                        <li>2.1 <a href="cs-degisken.html">Değişkenler & Veri Tipleri</a></li>
+                        <li>2.2 <a href="cs-kosul.html">Koşul Yapıları & Döngüler</a></li>
+                        <li>2.3 <a href="cs-metot.html">Metotlar & Fonksiyonlar</a></li>
+                        <li>2.4 <a href="cs-oop.html">Sınıflar & OOP</a></li>
+                    </ul>
+                </li>
+                <li style="margin-top: 15px;">3. MySQL & Veritabanı
+                    <ul>
+                        <li>3.1 <a href="sql-tasarim.html">Tasarım & Tablo Oluşturma</a></li>
+                        <li>3.2 <a href="sql-sorgu.html">Temel SQL Sorguları</a></li>
+                        <li>3.3 <a href="sql-join.html">İlişkiler & JOIN</a></li>
+                        <li>3.4 <a href="sql-group.html">Gruplama & Sıralama</a></li>
+                    </ul>
+                </li>
+                <li style="margin-top: 15px;">4. Görüntü İşleme (OpenCV)
+                    <ul>
+                        <li>4.1 <a href="cv-temel.html">Görüntü Okuma & Kaydetme</a></li>
+                        <li>4.2 <a href="cv-piksel.html">Piksel & Renk Uzayları</a></li>
+                        <li>4.3 <a href="cv-filtre.html">Filtreleme & Blurring</a></li>
+                        <li>4.4 <a href="cv-kenar.html">Kenar & Köşe Algılama</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main>
             
-            <!-- HTML & CSS Bölümü -->
-            <div class="card" style="border-top-color: #e34f26;">
-                <h3>HTML & CSS</h3>
-                <p>Web sayfalarının yapı taşları, semantik etiketler ve modern arayüz tasarımları üzerine aldığım notlar.</p>
-                <a href="html-notlari.html">Notları Oku &rarr;</a>
-            </div>
+            <h2>Çalışma Alanları</h2>
 
-            <!-- C# Bölümü -->
-            <div class="card" style="border-top-color: #178600;">
-                <h3>C# Programlama</h3>
-                <p>C# dilindeki temel yapılar, algoritmalar ve nesne yönelimli programlama (OOP) çalışmalarım.</p>
-                <a href="csharp-notlari.html">Notları Oku &rarr;</a>
-            </div>
+            <h3>1. HTML & CSS</h3>
+            
+            <h4>1.1 <a href="html-temel.html">Temel HTML Etiketleri (h1-h6, p, a, img)</a></h4>
+            <p>Sayfa başlıkları, metin paragrafları, görsel ekleme ve sayfalar arası yönlendirme köprülerinin tanımlanması.</p>
 
-            <!-- MySQL Bölümü -->
-            <div class="card" style="border-top-color: #00758f;">
-                <h3>MySQL & Veritabanı</h3>
-                <p>Veritabanı mimarileri, SQL sorguları, tablolar arası ilişkiler ve veri yönetimi notlarım.</p>
-                <a href="mysql-notlari.html">Notları Oku &rarr;</a>
-            </div>
+            <h4>1.2 <a href="html-liste.html">Liste Etiketleri (ul, ol, li)</a></h4>
+            <p>Sıralı (numaralı) ve sırasız (noktalı) listelerin oluşturulması.</p>
 
-            <!-- Görüntü İşleme Bölümü -->
-            <div class="card" style="border-top-color: #5c3f91;">
-                <h3>Görüntü İşleme (OpenCV)</h3>
-                <p>OpenCV kütüphanesi, bilgisayarlı görü algoritmaları ve pratik projelerimden edindiğim bilgiler.</p>
-                <a href="goruntu-isleme-notlari.html">Notları Oku &rarr;</a>
-            </div>
+            <h4>1.3 <a href="html-semantik.html">Semantik HTML5 (header, nav, section, article, footer)</a></h4>
+            <p>Web sayfasının bölümlerini arama motorlarına ve tarayıcılara daha anlamlı kılacak yapısal etiketlerin kullanımı.</p>
 
-        </div>
+            <h4>1.4 <a href="html-form.html">Form Elemanları ve Input Tipleri</a></h4>
+            <p>Kullanıcıdan veri almak için oluşturulan formlar, metin alanları, seçim kutuları ve butonlar.</p>
+
+            <h4>1.5 <a href="css-secici.html">CSS Seçicileri ve Sınıf Yapısı (class, id)</a></h4>
+            <p>HTML elemanlarını hedef alarak onlara stil uygulamak için kullanılan sınıf ve kimlik tanımlamaları.</p>
+
+            <h4>1.6 <a href="css-box.html">Kutu Modeli (Box Model - margin, padding, border)</a></h4>
+            <p>Elemanların dış boşluk, iç boşluk, kenarlık ve genişlik değerlerinin hesaplanma yapısı.</p>
+
+            <h4>1.7 <a href="css-layout.html">Modern Düzen Modelleri (Flexbox ve Grid)</a></h4>
+            <p>Web sayfalarındaki elemanları esnek ve ızgara sistemlerine göre hizalama yöntemleri.</p>
+
+
+            <h3>2. C# Programlama</h3>
+            
+            <h4>2.1 <a href="cs-degisken.html">Değişkenler ve Veri Tipleri</a></h4>
+            <p>Sayısal, metinsel ve mantıksal verileri hafızada tutmak için kullanılan C# değişken yapıları.</p>
+
+            <h4>2.2 <a href="cs-kosul.html">Koşul Yapıları ve Döngüler</a></h4>
+            <p>Programın akışını kontrol eden if-else yapıları ile tekrarlı işlemleri sağlayan for, while döngüleri.</p>
+
+            <h4>2.3 <a href="cs-metot.html">Metotlar ve Fonksiyonlar</a></h4>
+            <p>Belirli bir görevi gerçekleştiren ve tekrar tekrar çağrılabilen kod bloklarının oluşturulması.</p>
+
+            <h4>2.4 <a href="cs-oop.html">Sınıflar (Classes) ve Nesne Yönelimli Programlama (OOP)</a></h4>
+            <p>Sınıf yapıları, nesne üretimi, kalıtım ve kapsülleme gibi nesne yönelimli programlama temelleri.</p>
+
+
+            <h3>3. MySQL & Veritabanı</h3>
+            
+            <h4>3.1 <a href="sql-tasarim.html">Veritabanı Tasarımı ve Tablo Oluşturma</a></h4>
+            <p>Verilerin düzenli saklanması için ilişkisel şemaların hazırlanması ve tabloların tanımlanması.</p>
+
+            <h4>3.2 <a href="sql-sorgu.html">Temel SQL Sorguları (SELECT, INSERT, UPDATE, DELETE)</a></h4>
+            <p>Veritabanından veri çekme, yeni veri ekleme, mevcut veriyi güncelleme ve veri silme işlemleri.</p>
+
+            <h4>3.3 <a href="sql-join.html">Tablolar Arası İlişkiler ve JOIN İşlemleri</a></h4>
+            <p>Birbiriyle ilişkili tablolardaki verileri birleştirerek anlamlı raporlar oluşturma sorguları.</p>
+
+            <h4>3.4 <a href="sql-group.html">Gruplama ve Sıralama (GROUP BY, ORDER BY)</a></h4>
+            <p>Verileri belirli kriterlere göre gruplayarak analiz etme ve istenen düzende listeleme.</p>
+
+
+            <h3>4. Görüntü İşleme (OpenCV)</h3>
+            
+            <h4>4.1 <a href="cv-temel.html">Görüntü Okuma, Gösterme ve Kaydetme</a></h4>
+            <p>Bilgisayardaki bir görseli OpenCV ile belleğe yükleme, ekranda görüntüleme ve diske kaydetme.</p>
+
+            <h4>4.2 <a href="cv-piksel.html">Piksel İşlemleri ve Renk Uzayları (BGR, RGB, HSV, Gray)</a></h4>
+            <p>Görsellerin piksellerine erişme, renk filtreleme işlemleri için renk uzayları arası dönüşümler.</p>
+
+            <h4>4.3 <a href="cv-filtre.html">Görüntü Filtreleme ve Yumuşatma (Blurring)</a></h4>
+            <p>Görsellerdeki gürültüleri azaltmak için uygulanan bulanıklaştırma ve filtreleme teknikleri.</p>
+
+            <h4>4.4 <a href="cv-kenar.html">Kenar ve Köşe Algılama (Canny, Sobel)</a></h4>
+            <p>Görüntüler üzerindeki ani renk değişimlerini yakalayarak nesne sınırlarının tespiti.</p>
+
+        </main>
+
     </div>
 
 </body>
